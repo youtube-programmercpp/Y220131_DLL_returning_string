@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="f.cpp" />
+    <ClCompile Include="f2.cpp" />
     <ClCompile Include="f3.cpp" />
     <ClCompile Include="f4.cpp" />
     <ClCompile Include="pch.cpp">
