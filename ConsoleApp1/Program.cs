@@ -4,25 +4,26 @@ namespace ConsoleApp1
 	internal class Program
 	{
 		[DllImport("Dll1.dll", CallingConvention = CallingConvention.StdCall)]
-		[return: MarshalAs(UnmanagedType.BStr)]
-		static extern string f([MarshalAs(UnmanagedType.LPWStr)]string s);
-
-		[DllImport("Dll1.dll", CallingConvention = CallingConvention.StdCall)]
 		[return: MarshalAs(UnmanagedType.LPStr)]
-		static extern string f2([MarshalAs(UnmanagedType.LPStr)] string s);
-
-		[DllImport("Dll1.dll", CallingConvention = CallingConvention.StdCall)]
-		[return: MarshalAs(UnmanagedType.BStr)]
-		static extern string f3([MarshalAs(UnmanagedType.LPStr)] string s);
-
-		[DllImport("Dll1.dll", CallingConvention = CallingConvention.StdCall)]
-		[return: MarshalAs(UnmanagedType.BStr)]
-		static extern string f4([MarshalAs(UnmanagedType.LPWStr)] string s);
+		static extern string f5(int 値, int 桁数);
 
 		static void Main(string[] args)
 		{
-			string s = f2("ABCDEFG");
-			System.Console.WriteLine(s);
+			int 桁数;
+			if (int.TryParse(System.Console.ReadLine(), out 桁数))
+			{
+				if (1 <= 桁数 && 桁数 <= 10)
+				{
+					for (int 値 = 0; ;++値)
+					{
+						string s = f5(値, 桁数);
+						if (s == "")
+							break;
+						else
+							System.Console.WriteLine(s);
+					}
+				}
+			}
 		}
 	}
 }
